@@ -1,0 +1,35 @@
+<section class="auth-page">
+  <article class="auth-panel">
+    <header class="auth-header">
+      <h1>Register</h1>
+      <p>Create your account.</p>
+    </header>
+
+    <form class="auth-form" (submit)="register(usernameInput.value, passwordInput.value); $event.preventDefault()">
+      <div class="auth-field">
+        <label for="register-username">Username</label>
+        <input id="register-username" #usernameInput type="text" autocomplete="username">
+      </div>
+
+      <div class="auth-field">
+        <label for="register-password">Password</label>
+        <input id="register-password" #passwordInput type="password" autocomplete="new-password">
+      </div>
+
+      <button class="auth-button" type="submit">Register</button>
+    </form>
+
+    @if (message()) {
+      <p class="auth-status success" role="status">{{ message() }}</p>
+    }
+
+    @if (error()) {
+      <p class="auth-status error" role="alert">{{ error() }}</p>
+    }
+
+    <p class="auth-switch">
+      Already have an account?
+      <a routerLink="/login">Login</a>
+    </p>
+  </article>
+</section>

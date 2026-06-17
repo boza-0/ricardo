@@ -1,6 +1,6 @@
 # Ricardo
 
-Simple Angular + Express + MySQL registration demo.
+Simple Angular + Express + MySQL authentication demo with registration and login.
 
 ## Start Locally
 
@@ -20,11 +20,14 @@ Create the MySQL database and table:
 CREATE DATABASE ricardo_db;
 USE ricardo_db;
 
-CREATE TABLE usuarios (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  username VARCHAR(255) NOT NULL UNIQUE,
-  password_hash VARCHAR(255) NOT NULL
-);
+CREATE TABLE IF NOT EXISTS usuarios (
+  id_usuario INT NOT NULL AUTO_INCREMENT,
+  username VARCHAR(100) NOT NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (id_usuario),
+  UNIQUE KEY uq_usuarios_username (username)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 ```
 
 Start the backend:
@@ -47,8 +50,22 @@ Open:
 http://localhost:4200
 ```
 
+Frontend routes:
+
+```text
+http://localhost:4200/login
+http://localhost:4200/register
+```
+
 Backend health check:
 
 ```text
 http://localhost:3000/health
+```
+
+Backend auth endpoints:
+
+```text
+POST http://localhost:3000/register
+POST http://localhost:3000/login
 ```
