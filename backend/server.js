@@ -22,14 +22,6 @@ app.post('/register', async (req, res) => {
             return res.status(400).json({ error: 'Username and password are required' });
         }
 
-        if (username.length < 3) {
-            return res.status(400).json({ error: 'Username must have at least 3 characters' });
-        }
-
-        if (password.length < 6) {
-            return res.status(400).json({ error: 'Password must have at least 6 characters' });
-        }
-
         const passwordHash = await bcrypt.hash(password, 10);
 
         await pool.execute(

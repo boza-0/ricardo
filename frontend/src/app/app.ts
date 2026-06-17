@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -8,17 +8,17 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './app.css'
 })
 export class App {
-  message = '';
-  error = '';
+  message = signal('');
+  error = signal('');
 
   constructor(private http: HttpClient) { }
 
   register(username: string, password: string): void {
-    this.message = '';
-    this.error = '';
+    this.message.set('');
+    this.error.set('');
 
     if (!username || !password) {
-      this.error = 'Username and password are required';
+      this.error.set('Username and password are required');
       return;
     }
 
@@ -27,10 +27,10 @@ export class App {
       password
     }).subscribe({
       next: response => {
-        this.message = response.message;
+        this.message.set(response.message);
       },
       error: err => {
-        this.error = err.error?.error || 'Registration failed';
+        this.error.set(err.error?.error || 'Registration failed');
       }
     });
   }

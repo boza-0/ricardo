@@ -7,13 +7,12 @@ frontend/dist/
 frontend/.angular/
 frontend/tmp/
 frontend/out-tsc/
+frontend/bazel-out/
+frontend/.sass-cache/
+frontend/connect.lock
+frontend/typings/
+frontend/__screenshots__/
 backend/dist/
-
-# Environment files and secrets
-backend/.env
-frontend/.env
-.env
-.env.*
 
 # Logs
 *.log
@@ -25,16 +24,25 @@ backend/coverage/
 
 # IDEs and editors
 .idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+.history/
 .vscode/*
 frontend/.vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+!.vscode/mcp.json
 !frontend/.vscode/settings.json
 !frontend/.vscode/tasks.json
 !frontend/.vscode/launch.json
 !frontend/.vscode/extensions.json
+!frontend/.vscode/mcp.json
 
 # OS files
 .DS_Store
