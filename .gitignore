@@ -1,0 +1,41 @@
+# Dependencies
+backend/node_modules/
+frontend/node_modules/
+
+# Build and cache output
+frontend/dist/
+frontend/.angular/
+frontend/tmp/
+frontend/out-tsc/
+backend/dist/
+
+# Environment files and secrets
+backend/.env
+frontend/.env
+.env
+.env.*
+
+# Logs
+*.log
+
+# Coverage and test output
+coverage/
+frontend/coverage/
+backend/coverage/
+
+# IDEs and editors
+.idea/
+.vscode/*
+frontend/.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!frontend/.vscode/settings.json
+!frontend/.vscode/tasks.json
+!frontend/.vscode/launch.json
+!frontend/.vscode/extensions.json
+
+# OS files
+.DS_Store
+Thumbs.db

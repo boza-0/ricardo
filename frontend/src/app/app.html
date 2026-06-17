@@ -1,0 +1,22 @@
+<h1>Register</h1>
+
+<label>
+  Username:
+  <input #usernameInput type="text">
+</label>
+
+<br><br>
+
+<label>
+  Password:
+  <input #passwordInput type="password">
+</label>
+
+<br><br>
+
+<button type="button" (click)="register(usernameInput.value, passwordInput.value)">
+  Register
+</button>
+
+<p>{{ message }}</p>
+<p>{{ error }}</p>
